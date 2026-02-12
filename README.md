@@ -32,6 +32,12 @@ If you have a video file that will play natively in the browser you can use the 
 <whisper-transcript video="media.mp4" url="media.json"></whisper-transcript>
 ```
 
+If you would like to set the maximum height of the component use the `maxHeight` property:
+
+```html
+<whisper-transcript maxHeight="400px" audio="media.mp3" url="media.json"></whisper-transcript>
+```
+
 ## Develop
 
 You will want to clone this repository and then:

@@ -25,3 +25,5 @@ custom-elements.json
 
 yarn.lock
 .claude
+.yarn/
+.yarnrc.yml

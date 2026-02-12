@@ -22,10 +22,11 @@
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.10.3",
+    "@rollup/plugin-node-resolve": "^16.0.3",
     "@web/dev-server": "^0.4.6",
     "koa-range": "^0.3.0",
-    "rollup": "^4.27.3",
-    "rollup-plugin-node-resolve": "^5.2.0"
+    "rollup": "^4.27.3"
   },
-  "customElements": "custom-elements.json"
+  "customElements": "custom-elements.json",
+  "packageManager": "yarn@4.12.0"
 }
