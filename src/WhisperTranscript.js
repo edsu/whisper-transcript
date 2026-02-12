@@ -1,4 +1,5 @@
 import { html, css, LitElement } from 'lit';
+import { styleMap } from 'lit/directives/style-map.js';
 
 export class WhisperTranscript extends LitElement {
   static styles = css`
@@ -12,14 +13,12 @@ export class WhisperTranscript extends LitElement {
       list-style: none;
       padding-left: 0;
       overflow-y: auto;
-      max-height: 400px;
     }
 
     .media {
       text-align: center;
       position: sticky;
       top: 0;
-      z-index: 10;
     }
 
     .whisper-transcript {
@@ -33,7 +32,8 @@ export class WhisperTranscript extends LitElement {
     audio: {type: String},
     video: {type: String},
     transcript: {type: Object, attribute: false},
-    time: {type: Number}
+    time: {type: Number},
+    maxHeight: {type: String}
   };
 
   constructor() {
@@ -67,6 +67,10 @@ export class WhisperTranscript extends LitElement {
   }
 
   render() {
+    const styles = {
+      maxHeight: this.maxHeight
+    }
+
     if (! this.transcript) {
       return html`Loading...`;
     }
@@ -78,12 +82,11 @@ export class WhisperTranscript extends LitElement {
     return html`
       <div class="whisper-transcript">
         <div class="media">${media}</div>
-        <ul>
+        <ul style="${styleMap(styles)}">
           ${this.transcript.segments.map(
             (s) => html`
               <whisper-segment class="${this.time >= s.start && this.time <= s.end ? 'active' : ''}" .words="${s.words}"
-                               start="${s.start}" end="${s.end}" text="${s.text}" 
-              />
+                 start="${s.start}" end="${s.end}" text="${s.text}" />
             `
           )}
         </ul>
