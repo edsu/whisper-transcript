@@ -24,3 +24,4 @@ storybook-static
 custom-elements.json
 
 yarn.lock
+.claude
